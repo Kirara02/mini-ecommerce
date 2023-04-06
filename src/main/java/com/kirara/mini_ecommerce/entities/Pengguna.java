@@ -9,7 +9,7 @@ import lombok.Data;
 
 @Entity
 @Data
-public class pengguna implements Serializable {
+public class Pengguna implements Serializable {
     
     @Id
     private String id;

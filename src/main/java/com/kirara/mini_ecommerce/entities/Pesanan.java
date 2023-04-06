@@ -28,7 +28,7 @@ public class Pesanan implements Serializable {
     private Date tanggal;
     @JoinColumn
     @ManyToOne
-    private pengguna pengguna;
+    private Pengguna pengguna;
     private String alamatPengiriman;
     private BigDecimal jumlah;
     private BigDecimal ongkir;
