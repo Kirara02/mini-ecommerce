@@ -34,7 +34,7 @@ public class Pesanan implements Serializable {
     private BigDecimal ongkir;
     private BigDecimal total;
     @Enumerated(EnumType.STRING)
-    private StatusPesanan status;
+    private StatusPesanan statusPesanan;
     @Temporal(TemporalType.TIMESTAMP)
     private Date waktuPesan;
 }

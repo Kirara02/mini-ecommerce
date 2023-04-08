@@ -20,7 +20,7 @@ public class PesananItem implements Serializable {
     private Pesanan pesanan;
     @JoinColumn
     @ManyToOne
-    private Produk product;
+    private Produk produk;
     private String deskripsi;
     private Double kuantitas;
     private BigDecimal harga;
