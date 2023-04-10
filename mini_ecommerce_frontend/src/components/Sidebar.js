@@ -75,7 +75,7 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar">
-      <h3>Sidebar</h3>
+      <h3>Menu</h3>
       <Menu model={items} />
     </div>
   );
