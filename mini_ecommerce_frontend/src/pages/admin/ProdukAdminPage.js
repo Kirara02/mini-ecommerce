@@ -57,13 +57,13 @@ const ProdukAdminPage = () => {
                     header="Nama Produk"
                     body={namaBpdyTemplate}
                   />
-                  <Column field="nama" header="Nama Produk" />
+                  <Column field="kategori.name" header="Kategori" />
                   <Column
                     field="harga"
                     header="Harga"
                     style={{ width: "100px" }}
                   />
-                   <Column
+                  <Column
                     field="stok"
                     header="Stok"
                     style={{ width: "100px" }}

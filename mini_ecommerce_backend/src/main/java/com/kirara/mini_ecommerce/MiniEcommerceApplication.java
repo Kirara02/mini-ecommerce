@@ -2,8 +2,12 @@ package com.kirara.mini_ecommerce;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 @SpringBootApplication
+@EnableConfigurationProperties({
+		FileStorageProperties.class
+})
 public class MiniEcommerceApplication {
 
 	public static void main(String[] args) {

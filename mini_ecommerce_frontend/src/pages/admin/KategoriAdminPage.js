@@ -171,6 +171,8 @@ const KategoriAdminPage = () => {
     </React.Fragment>
   );
 
+  
+
   return (
     <MainPage>
       <div className="main-content">
