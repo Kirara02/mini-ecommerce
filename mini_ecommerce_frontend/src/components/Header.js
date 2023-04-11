@@ -1,11 +1,13 @@
 import React from "react";
+import { useAuth } from "../auth/useAuth";
 
 const Header = () => {
-    return (
-        <div className="header shadow-1">
-            <h1>Dashboard Admin</h1>
-        </div>
-    );
-}
+  const { user } = useAuth();
+  return (
+    <div className="header shadow-1">
+      <h1>Dashboard {user.role === "admin" ? "Admin" : "User"}</h1>
+    </div>
+  );
+};
 
 export default Header;

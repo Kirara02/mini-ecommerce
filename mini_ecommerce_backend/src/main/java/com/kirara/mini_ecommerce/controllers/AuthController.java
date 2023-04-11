@@ -50,10 +50,11 @@ public class AuthController {
 
         String token = jwtUtils.generateJwtToken(authentication);
         String refreshToken = jwtUtils.generateRefreshJwtToken(authentication);
-        UserDetailsImpl pricipal = (UserDetailsImpl) authentication.getPrincipal();
+        UserDetailsImpl principal = (UserDetailsImpl) authentication.getPrincipal();
 
         return ResponseEntity.ok()
-                .body(new JwtResponse(token, refreshToken, pricipal.getUsername(), pricipal.getEmail()));
+                .body(new JwtResponse(token, refreshToken, principal.getUsername(), principal.getEmail(),
+                        principal.getRoles()));
     }
 
     @PostMapping("/signup")
@@ -84,6 +85,7 @@ public class AuthController {
         String newToken = jwtUtils.generateJwtToken(authentication);
         String refreshToken = jwtUtils.generateRefreshJwtToken(authentication);
 
-        return ResponseEntity.ok(new JwtResponse(newToken, refreshToken, username, userDetailsImpl.getEmail()));
+        return ResponseEntity.ok(new JwtResponse(newToken, refreshToken, username, userDetailsImpl.getEmail(),
+                userDetailsImpl.getRoles()));
     }
 }

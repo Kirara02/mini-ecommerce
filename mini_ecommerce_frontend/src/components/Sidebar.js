@@ -4,8 +4,27 @@ import { Menu } from "primereact/menu";
 import { useAuth } from "../auth/useAuth";
 
 const Sidebar = () => {
-  const { signOut } = useAuth();
-  const items = [
+  const { signOut, user } = useAuth();
+  const userMenus = [
+    {
+      label: "Dashboard",
+      icon: "pi pi-th-large",
+      template: (item, options) => {
+        return (
+          <Link to={"/user/dashboard"} className={options.className}>
+            <span className={options.iconClassName}></span>
+            <span className={options.labelClassName}>{item.label}</span>
+          </Link>
+        );
+      },
+    },
+    {
+      label: "Logout",
+      icon: "pi pi-sign-out",
+      command: () => signOut(),
+    },
+  ];
+  const adminMenus = [
     {
       label: "Dashboard",
       icon: "pi pi-th-large",
@@ -76,7 +95,7 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <h3>Menu</h3>
-      <Menu model={items} />
+      <Menu model={user.role === "admin" ? adminMenus : userMenus } />
     </div>
   );
 };

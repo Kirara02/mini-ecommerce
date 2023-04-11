@@ -9,16 +9,28 @@ import ProdukAdminPage from "./pages/admin/ProdukAdminPage";
 import ProdukAdminCreatePage from "./pages/admin/ProdukAdminCreatePage";
 import ProdukAdminDetailPage from "./pages/admin/ProdukAdminDetailPage";
 import ProdukAdminEditPage from "./pages/admin/ProdukAdminEditPage";
+import SignUpPage from "./pages/SignUpPage";
+import Forbidden from "./components/Forbidden";
 
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/signin" element={<SignInPage />} />
+      <Route path="/signup" element={<SignUpPage />} />
+      <Route path="/forbidden" element={<Forbidden></Forbidden>} />
+      <Route
+        path="/user/dashboard"
+        element={
+          <ProtectedRoute userRole="user">
+            <DashboardAdminPage />
+          </ProtectedRoute>
+        }
+      />
       <Route
         path="/admin/dashboard"
         element={
-          <ProtectedRoute>
+          <ProtectedRoute userRole="admin">
             <DashboardAdminPage />
           </ProtectedRoute>
         }
@@ -26,7 +38,7 @@ const App = () => {
       <Route
         path="/admin/kategori"
         element={
-          <ProtectedRoute>
+          <ProtectedRoute userRole="admin">
             <KategoriAdminPage />
           </ProtectedRoute>
         }
@@ -34,7 +46,7 @@ const App = () => {
       <Route
         path="/admin/produk"
         element={
-          <ProtectedRoute>
+          <ProtectedRoute userRole="admin">
             <ProdukAdminPage />
           </ProtectedRoute>
         }
@@ -42,7 +54,7 @@ const App = () => {
       <Route
         path="/admin/produk/create"
         element={
-          <ProtectedRoute>
+          <ProtectedRoute userRole="admin">
             <ProdukAdminCreatePage />
           </ProtectedRoute>
         }
@@ -50,7 +62,7 @@ const App = () => {
       <Route
         path="/admin/produk/detail/:id"
         element={
-          <ProtectedRoute>
+          <ProtectedRoute userRole="admin">
             <ProdukAdminDetailPage />
           </ProtectedRoute>
         }
@@ -58,7 +70,7 @@ const App = () => {
       <Route
         path="/admin/produk/edit/:id"
         element={
-          <ProtectedRoute>
+          <ProtectedRoute userRole="admin">
             <ProdukAdminEditPage />
           </ProtectedRoute>
         }

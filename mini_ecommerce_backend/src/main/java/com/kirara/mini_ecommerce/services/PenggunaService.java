@@ -54,10 +54,6 @@ public class PenggunaService {
             throw new BadRequestException("Username harus diisi");
         }
 
-        if (!StringUtils.hasText(pengguna.getEmail())) {
-            throw new BadRequestException("Email harus diisi");
-        }
-
         return penggunaRepository.save(pengguna);
     }
 
